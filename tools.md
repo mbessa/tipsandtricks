@@ -185,6 +185,7 @@ cd kubectx
 git checkout HEAD completion
 app="kubectx"
 sudo cp completion/*.zsh /usr/local/bin/
+sudo chmod +x /usr/local/bin/*.zsh
 ```
 
 ## OHmyZSH
