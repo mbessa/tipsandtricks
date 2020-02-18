@@ -79,6 +79,16 @@ sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
 ### test:
 `helm version`  
 
+------------------------
+## helm diff: 
+
+### Install:
+`helm plugin install https://github.com/databus23/helm-diff --version master`
+
+### Usage:
+`helm diff upgrade --allow-unreleased nginx-ingress stable/nginx-ingress -f values.yaml`
+
+#### link: https://github.com/databus23/helm-diff
 ------------------------------------------------------------------------------------------
 
 # golang-go
