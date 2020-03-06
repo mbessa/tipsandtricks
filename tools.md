@@ -167,7 +167,10 @@ Set ZSH_THEME=powerlevel10k/powerlevel10k in your ~/.zshrc.
 ohmyzsh
 powerlevel10k
 ```  
-  
+
+### Zsh auto-suggestions
+https://github.com/zsh-users/zsh-autosuggestions
+
 
 ## fzf - A command-line fuzzy finder 
 
