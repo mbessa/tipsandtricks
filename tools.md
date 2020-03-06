@@ -246,11 +246,17 @@ cp kubectl-aliases/.kubectl_aliases ~
 
 cat << FOE >> ~/.zshrc
 
+#kubectl_aliases function to print command
+function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
+
 #kubectl_aliases
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 FOE
 
 cat << FOE >> ~/.bashrc
+
+#kubectl_aliases function to print command
+function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
 
 #kubectl_aliases
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
