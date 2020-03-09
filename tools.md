@@ -47,7 +47,7 @@ https://releases.hashicorp.com/vault/1.3.1/vault_1.3.1_linux_amd64.zip
 ```
 version="1.3.1"  
 app="vault"  
-wget "https://releases.hashicorp.com/vault/${version}/${app}_${version}_linux_amd64.zip" -O $  {app}_${version}.zip  
+wget "https://releases.hashicorp.com/vault/${version}/${app}_${version}_linux_amd64.zip" -O ${app}_${version}.zip  
 unzip ${app}_${version}.zip  
 sudo mkdir -p /tools/${app}  
 sudo cp ${app} /tools/${app}/${app}_${version}  
