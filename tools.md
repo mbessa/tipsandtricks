@@ -68,7 +68,7 @@ https://hub.helm.sh/
 	
 ## instructions:
 ```
-version="3.0.2"
+version="3.2.1"
 app="helm"
 wget "https://get.helm.sh/${app}-v${version}-linux-amd64.tar.gz" -O ${app}_${version}.tar.gz
 tar -zxvf ${app}_${version}.tar.gz
