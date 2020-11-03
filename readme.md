@@ -342,3 +342,10 @@ Description: Turn VSCode into a supercharged IDE.
 Version: 1.3.4
 Publisher: jabacchetta
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=jabacchetta.vscode-essentials
+
+
+
+
+### to do
+- add kubectl cert manager
+https://cert-manager.io/next-docs/usage/kubectl-plugin/#renew
