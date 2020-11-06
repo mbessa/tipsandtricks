@@ -349,3 +349,4 @@ VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=jabacch
 ### to do
 - add kubectl cert manager
 https://cert-manager.io/next-docs/usage/kubectl-plugin/#renew
+- Add krew to install plugins for kubectl
