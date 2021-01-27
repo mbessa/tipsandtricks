@@ -14,7 +14,7 @@ win+r > wsl [enter]
 
 ----------------
 
-# terraform
+# Terraform
 ## Use Infrastructure as Code to provision and manage any cloud, infrastructure, or service
 ## links:
 https://www.terraform.io/downloads.html  
@@ -34,18 +34,22 @@ sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
 ### test:  
 `terraform version`  
 
+
+
+Note: Install multiple versions of terraform if needed.
+
 ------------------------------------------------------------------------------------------
 
-# vault
+# Vault
 ## Manage Secrets and Protect Sensitive Data
 ## links:   
 https://www.vaultproject.io/downloads/  
 https://releases.hashicorp.com/vault/  
-https://releases.hashicorp.com/vault/1.3.1/vault_1.3.1_linux_amd64.zip  
+https://releases.hashicorp.com/vault/1.6.1/vault_1.6.1_linux_amd64.zip  
   
 ## instructions:  
 ```
-version="1.3.1"  
+version="1.6.1"  
 app="vault"  
 wget "https://releases.hashicorp.com/vault/${version}/${app}_${version}_linux_amd64.zip" -O ${app}_${version}.zip  
 unzip ${app}_${version}.zip  
@@ -58,7 +62,7 @@ sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
 
 ------------------------------------------------------------------------------------------
 	
-# helm
+# Helm
 ## Helm is a tool for managing Charts. Charts are packages of pre-configured Kubernetes resources.
 ## links:   
 https://github.com/helm/helm/releases  
@@ -68,7 +72,7 @@ https://hub.helm.sh/
 	
 ## instructions:
 ```
-version="3.2.1"
+version="3.5.0"
 app="helm"
 wget "https://get.helm.sh/${app}-v${version}-linux-amd64.tar.gz" -O ${app}_${version}.tar.gz
 tar -zxvf ${app}_${version}.tar.gz
@@ -85,22 +89,25 @@ sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
 ### Install:
 `helm plugin install https://github.com/databus23/helm-diff --version master`
 
-### Usage:
+### Usage EXAMPLE:
 `helm diff upgrade --allow-unreleased nginx-ingress stable/nginx-ingress -f values.yaml`
 
 #### link: https://github.com/databus23/helm-diff
 ------------------------------------------------------------------------------------------
 
-# golang-go
+# Golang-Go
 ## Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
 ## link: 
 https://golang.org/dl/
-## instructions:
-apt-get: `sudo apt-get install golang-go`
 
-or manual:
+## instructions:
+apt-get: `sudo apt-get install golang-go` 
+
+dnf: `sudo dnf install golang`
+
+or manual (latest version):
 ```
-version="1.13.6"
+version="1.15.7"
 app="go"
 wget "https://dl.google.com/${app}/${app}${version}.linux-amd64.tar.gz" -O ${app}_${version}.tar.gz
 sudo mkdir -p /tools/${app}_${version}/
@@ -114,10 +121,13 @@ sudo ln -sfn /tools/${app}/bin/${app} /usr/local/bin/${app}
 
 ------------------------------------------------------------------------------------------
 
-# git
-## Git SCM
+# Git
 ## instructions:  
 `apt-get install git`  
+or
+
+`sudo dnf install git`
+
 ## test: 
 `git --version`
 
@@ -128,7 +138,7 @@ sudo ln -sfn /tools/${app}/bin/${app} /usr/local/bin/${app}
 ## Gcloud command-line tool
 ## links:
 https://cloud.google.com/sdk/docs/downloads-apt-get  
-## instructions:
+## instructions (for deb packages):
 ```
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 sudo apt-get install apt-transport-https ca-certificates gnupg
@@ -144,15 +154,18 @@ sudo apt-get update && sudo apt-get install google-cloud-sdk kubectl -y
 # zsh
 ## Alternative shell
 `apt-get install zsh`  
+or 
 
+`sudo dnf install zsh`
 ### test:
 `zsh --version`  
   
 
 ## add-ons:
-### ohmyzsh - Oh My Zsh will not make you a 10x developer...but you may feel like one.
+## ohmyzsh - Oh My Zsh will not make you a 10x developer...but you may feel like one.
 links: https://ohmyz.sh  
-instructions:  
+
+### instructions:  
 `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 
@@ -190,6 +203,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 # kubectx/kubens
 ## Faster way to switch between clusters and namespaces in kubectl 
+Note: you can install kubectx and Kubens via Krew also (see Krew section)
+
 ## links:
 https://github.com/ahmetb/kubectx  
 ```
@@ -272,7 +287,7 @@ FOE
 ------------------------------------------------------------------------------------------
 
 
-# stern
+# Stern
 
 ## Stern allows you to tail multiple pods on Kubernetes and multiple containers within the pod
 ## link: 
@@ -326,7 +341,7 @@ sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
 
 ---------------------------------
 
-# visual studio Code
+# Visual Studio Code
 ## extensions
 
 Name: VSCode Dimmer Block
@@ -344,9 +359,55 @@ Publisher: jabacchetta
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=jabacchetta.vscode-essentials
 
 
+---
+# Krew
+
+Krew is the plugin manager for kubectl command-line tool.
+
+Krew helps you:
+
+- discover kubectl plugins,
+- install them on your machine,
+- and keep the installed plugins up-to-date.
+
+There are 132 kubectl plugins currently distributed on Krew.
+
+## Install crew in BASH or ZSH
+
+1. Run the following comand 
+```
+(
+  set -x; cd "$(mktemp -d)" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.tar.gz" &&
+  tar zxvf krew.tar.gz &&
+  KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_$(uname -m | sed -e 's/x86_64/amd64/' -e 's/arm.*$/arm/')" &&
+  "$KREW" install krew
+)
+
+```
+
+2. Add $HOME/.krew/bin directory to your PATH environment variable. To do this, update your .bashrc or .zshrc file and append the following line:
+
+```
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+```
+
+3. Verify running ``` kubectl krew ``` works.
 
 
-### to do
-- add kubectl cert manager
-https://cert-manager.io/next-docs/usage/kubectl-plugin/#renew
-- Add krew to install plugins for kubectl
+
+## Plugins for krew
+
+
+Run kubectl ``` krew install <PLUGIN_NAME> ``` to install a plugin via Krew.
+
+Nice plugins to have:
+
+- cert-manager
+- get-all
+- ctx
+- ns 
+- deprecations
+- access-matrix
+
+More plugins available at: https://krew.sigs.k8s.io/plugins/
