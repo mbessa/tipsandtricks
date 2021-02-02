@@ -339,9 +339,6 @@ sudo chmod +x /tools/${app}/${app}_${version}
 sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
 ```
 
-## test: 
-`kubeseal --version`
-
 ---------------------------------
 
 # kubeseal
@@ -349,6 +346,8 @@ sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
 ## link:
 
 https://github.com/bitnami-labs/sealed-secrets
+
+https://github.com/bitnami-labs/sealed-secrets/releases
 
 ## instructions:
 ```
@@ -361,6 +360,9 @@ sudo cp ${app}_${version} /tools/${app}/${app}_${version}
 sudo chmod +x /tools/${app}/${app}_${version}
 sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
 ```
+
+## test: 
+`kubeseal --version`
 
 ---------------------------------
 
