@@ -339,6 +339,29 @@ sudo chmod +x /tools/${app}/${app}_${version}
 sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
 ```
 
+## test: 
+`kubeseal --version`
+
+---------------------------------
+
+# kubeseal
+## Encrypt secrets with sealed secrets
+## link:
+
+https://github.com/bitnami-labs/sealed-secrets
+
+## instructions:
+```
+version="0.14.1"
+app="kubeseal"
+sudo mkdir -p /tools/${app}/
+wget "https://github.com/bitnami-labs/sealed-secrets/releases/download/v${version}/kubeseal-linux-amd64" -O ${app}_${version}
+
+sudo cp ${app}_${version} /tools/${app}/${app}_${version}
+sudo chmod +x /tools/${app}/${app}_${version}
+sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
+```
+
 ---------------------------------
 
 # Visual Studio Code
